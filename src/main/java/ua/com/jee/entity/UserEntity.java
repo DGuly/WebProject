@@ -17,6 +17,8 @@ public class UserEntity {
     @Column(nullable = false)
     private String password;
 
+    private String code;
+
     public UserEntity() {
 
     }
@@ -48,6 +50,14 @@ public class UserEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     @Override
