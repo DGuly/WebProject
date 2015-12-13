@@ -20,6 +20,8 @@ public class UserEntity {
     @Column(nullable = false)
     private String email;
 
+    private String code;
+
     public UserEntity() {
 
     }
@@ -61,6 +63,14 @@ public class UserEntity {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public void setEmail(String email) {

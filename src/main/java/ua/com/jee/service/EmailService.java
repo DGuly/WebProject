@@ -2,6 +2,7 @@ package ua.com.jee.service;
 
 
 import org.springframework.stereotype.Service;
+import ua.com.jee.entity.UserEntity;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -15,33 +16,16 @@ public class EmailService {
     private Session mailSession;
     private Transport mailTransport;
 
-    public void sendHTML(String[] emails, String subject, HTMLDocument htmlMessage) {
-        setProperties();
-        MimeMessage message = new MimeMessage(mailSession);
-
-        try {
-            for (String email : emails) {
-                message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
-            }
-            message.setSubject(subject);
-            message.setContent(htmlMessage, "text/html");
-
-            mailTransport.sendMessage(message, message.getAllRecipients());
-            mailTransport.close();
-
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
+    public void sendAccessCode(UserEntity userEntity) {
+        sendText(userEntity.getEmail(), "Access Code", "Your access code is: " + userEntity.getCode());
     }
 
-    public void sendText(String[] emails, String subject, String textMessage) {
+    public void sendText(String email, String subject, String textMessage) {
         setProperties();
         MimeMessage message = new MimeMessage(mailSession);
 
         try {
-            for (String email : emails) {
-                message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
-            }
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
             message.setSubject(subject);
             message.setText(textMessage);
 
