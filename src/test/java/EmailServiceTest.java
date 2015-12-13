@@ -19,9 +19,8 @@ public class EmailServiceTest {
 
     @Test
     public void TestEmailService() {
-        String[] emails = {
-            "evgeniy.baranuk@gmail.com"
-        };
-        emailService.sendText(emails, "yo", "123");
+        String email =
+            "evgeniy.baranuk@gmail.com";
+        emailService.sendText(email, "yo", "123");
     }
 }
