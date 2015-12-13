@@ -40,6 +40,6 @@ public class RestControllers {
     }
 
     private void fillDb() {
-        repository.save(new UserEntity("admin", "admiadded "));
+        repository.save(new UserEntity("admin", "admin", "evgeniy.baranuk@gmail.com"));
     }
 }

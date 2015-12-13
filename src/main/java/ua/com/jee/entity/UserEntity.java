@@ -17,10 +17,17 @@ public class UserEntity {
     @Column(nullable = false)
     private String password;
 
-    private String code;
+    @Column(nullable = false)
+    private String email;
 
     public UserEntity() {
 
+    }
+
+    public UserEntity(String name, String password, String email) {
+        this.name = name;
+        this.password = password;
+        this.email = email;
     }
 
     public UserEntity(String name, String password) {
@@ -52,12 +59,12 @@ public class UserEntity {
         this.password = password;
     }
 
-    public String getCode() {
-        return code;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
