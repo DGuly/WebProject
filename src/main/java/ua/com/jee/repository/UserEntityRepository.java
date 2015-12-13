@@ -1,8 +1,9 @@
-package ua.com.jee.entity;
+package ua.com.jee.repository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import ua.com.jee.entity.UserEntity;
 
 public interface UserEntityRepository extends JpaRepository<UserEntity, Long> {
 

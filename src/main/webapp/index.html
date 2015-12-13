@@ -2,9 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BLABLA</title>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style/index.css">
 </head>
 <body>
-blablabla
+<div class="container">
+    <div class="login-form col-md-offset-4 col-md-3 well">
+        <form id="login_form">
+            <div class="text-center">
+                <h4>LOGIN FORM</h4>
+            </div>
+            <p>
+                <input type="text" class="form-control" placeholder="Login">
+            </p>
+            <p>
+                <input type="password" class="form-control" placeholder="Password">
+            </p>
+            <div class="text-center">
+                <button type="submit" class="btn btn-default">Next</button>
+            </div>
+        </form>
+
+        <form id="confirm_login_form" style="display: none">
+            <div class="text-center">
+                <h4>LOGIN FORM</h4>
+            </div>
+            <p>
+                We've sent you an email with code. Type this code in form below.
+            </p>
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                    <p>
+                        <input type="text" class="form-control" placeholder="Code" style="text-align: center;text-transform: uppercase;">
+                    </p>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-default">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="script/index.js"></script>
 </body>
 </html>
