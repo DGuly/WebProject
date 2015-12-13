@@ -26,36 +26,30 @@ public class RestControllers {
     private boolean isDbFilled = false;
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity login(@RequestParam("userName") String name,
-                            @RequestParam("password") String password) {
+//    @RequestMapping(value = "/login", method = RequestMethod.POST)
+//    public ResponseEntity login(@RequestParam("userName") String name,
+//                            @RequestParam("password") String password) {
+//
+//        if (!isDbFilled) {
+//            fillDb();
+//            isDbFilled = true;
+//        }
+//
+//        UserEntity userEntity = repository.findByName(name);
+//
+//        if (ObjectUtils.isEmpty(userEntity)) {
+//            return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+//        } else {
+//            userEntity.setCode(generateCode());
+//            System.out.println(userEntity.toString());
+//            emailService.sendAccessCode(userEntity);
+//
+//            return new ResponseEntity<String>(HttpStatus.OK);
+//
+//        }
+//    }
+//
+//    private void fillDb() {
+//    }
 
-        if (!isDbFilled) {
-            fillDb();
-            isDbFilled = true;
-        }
-
-        UserEntity userEntity = repository.findByName(name);
-
-        if (ObjectUtils.isEmpty(userEntity)) {
-            return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
-        } else {
-            userEntity.setCode(generateCode());
-            System.out.println(userEntity.toString());
-            emailService.sendAccessCode(userEntity);
-
-            return new ResponseEntity<String>(HttpStatus.OK);
-
-        }
-    }
-
-    private void fillDb() {
-        repository.save(new UserEntity("admin", "admin", "evgeniy.baranuk@gmail.com"));
-    }
-
-    private String generateCode() {
-        Random rnd = new Random();
-        Integer n = 100000 + rnd.nextInt(900000);
-        return n.toString();
-    }
 }

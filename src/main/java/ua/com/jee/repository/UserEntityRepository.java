@@ -7,7 +7,6 @@ import ua.com.jee.entity.UserEntity;
 
 public interface UserEntityRepository extends JpaRepository<UserEntity, String> {
 
-
     Page<UserEntity> findAll(Pageable pageable);
 
     UserEntity findByNameIgnoringCase(String name);
