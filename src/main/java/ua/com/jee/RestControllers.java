@@ -35,7 +35,7 @@ public class RestControllers {
             isDbFilled = true;
         }
 
-        UserEntity userEntity = repository.findByNameIgnoringCase(name);
+        UserEntity userEntity = repository.findByName(name);
 
         if (ObjectUtils.isEmpty(userEntity)) {
             return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);

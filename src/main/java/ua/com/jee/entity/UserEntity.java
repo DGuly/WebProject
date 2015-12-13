@@ -7,10 +7,8 @@ import javax.persistence.Id;
 
 @Entity
 public class UserEntity {
-    @Id
-    @GeneratedValue
-    private Long id;
 
+    @Id
     @Column(nullable = false)
     private String name;
 
@@ -35,14 +33,6 @@ public class UserEntity {
     public UserEntity(String name, String password) {
         this.name = name;
         this.password = password;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -80,9 +70,9 @@ public class UserEntity {
     @Override
     public String toString() {
         return "UserEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
