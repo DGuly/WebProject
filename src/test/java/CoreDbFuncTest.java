@@ -14,7 +14,7 @@ public class CoreDbFuncTest {
 
     @Test
     public void checkDbConnectionSuccessfull() {
-        //repository.save(new UserEntity("Jeka", "password123"));
+//        repository.save(new UserEntity("Jeka", "password123"));
         System.out.println(repository.findByNameIgnoringCase("jeka"));
     }
 }
