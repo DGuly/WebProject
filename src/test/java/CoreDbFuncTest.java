@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import ua.com.jee.Application;
+import ua.com.jee.entity.UserEntity;
 import ua.com.jee.repository.UserEntityRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
