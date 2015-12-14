@@ -12,6 +12,7 @@ import ua.com.jee.entity.UserEntity;
 import ua.com.jee.repository.UserEntityRepository;
 import ua.com.jee.service.EmailService;
 
+import java.util.List;
 import java.util.Random;
 
 @RestController
@@ -26,30 +27,8 @@ public class RestControllers {
     private boolean isDbFilled = false;
 
 
-//    @RequestMapping(value = "/login", method = RequestMethod.POST)
-//    public ResponseEntity login(@RequestParam("userName") String name,
-//                            @RequestParam("password") String password) {
-//
-//        if (!isDbFilled) {
-//            fillDb();
-//            isDbFilled = true;
-//        }
-//
-//        UserEntity userEntity = repository.findByName(name);
-//
-//        if (ObjectUtils.isEmpty(userEntity)) {
-//            return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
-//        } else {
-//            userEntity.setCode(generateCode());
-//            System.out.println(userEntity.toString());
-//            emailService.sendAccessCode(userEntity);
-//
-//            return new ResponseEntity<String>(HttpStatus.OK);
-//
-//        }
-//    }
-//
-//    private void fillDb() {
-//    }
-
+    @RequestMapping(value = "/data", method = RequestMethod.GET)
+    public String getData() {
+        return repository.findAll().toString();
+    }
 }

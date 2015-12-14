@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import ua.com.jee.service.UserDetailsServiceAdapter;
 
 /**
@@ -14,6 +15,8 @@ import ua.com.jee.service.UserDetailsServiceAdapter;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @Autowired
     private UserDetailsServiceAdapter userDetailsServiceAdapter;
@@ -41,6 +44,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void registerAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsServiceAdapter);
+        auth.userDetailsService(userDetailsServiceAdapter).passwordEncoder(encoder);
     }
 }

@@ -23,4 +23,11 @@ public class EmailServiceTest {
             "evgeniy.baranuk@gmail.com";
         emailService.sendText(email, "yo", "123");
     }
+
+    @Test
+    public void sendEmailToDmytry() {
+        String email =
+                "dmytry.guly@gmail.com";
+        emailService.sendText(email, "yo", "123");
+    }
 }

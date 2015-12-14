@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 import ua.com.jee.entity.UserEntity;
 import ua.com.jee.repository.UserEntityRepository;
 
@@ -22,6 +23,9 @@ public class UserDetailsServiceAdapter implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         UserEntity user = userEntityRepository.findByName(s);
+        if (ObjectUtils.isEmpty(user)) {
+            throw new UsernameNotFoundException("User with login" + s + " was not found. Check login and password, please");
+        }
         return new UserDetailsAdapter(user);
     }
 }
